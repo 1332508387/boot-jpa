@@ -127,7 +127,7 @@ User findByUsername(String username);
 官方：https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.sample-app.finders.strategies
 
 |关键字 |举例 |转化为 |
-| :-------- | --------:| :--: |
+| :-------- | :--------| :-- |
 | And  | findByLastnameAndFirstname |  … where x.lastname = ?1 and x.firstname = ?2   |
 |Or|findByLastnameOrFirstname | … where x.lastname = ?1 or x.firstname = ?2|
 |Is,Equals|findByFirstname，findByFirstnameIs，findByFirstnameEquals |… where x.firstname = ?1 |
