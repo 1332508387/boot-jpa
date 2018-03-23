@@ -20,7 +20,7 @@ public interface UserDao extends JpaRepository<User, Long>{
 	@Query(value = "DELETE FROM User WHERE id = ?1")
 	int removeUserByMinId(Long id);
 
-	/**
+	/** 
 	 * 符合规则的方法将自动生成 SQL
 	 */
 	User findByUsername(String username);

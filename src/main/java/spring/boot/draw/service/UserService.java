@@ -21,7 +21,7 @@ public class UserService {
 		User retUser = userDao.save(user);
 		return retUser;
 	}
-
+ 
 	public List<User> listUser() {
 		// 使用 Spring Data JPA 提供的方法，获取所用用户信息
 		return userDao.findAll();

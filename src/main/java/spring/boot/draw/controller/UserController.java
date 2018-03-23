@@ -78,6 +78,14 @@ public class UserController {
 		return userService.getUserByUsername(username);
 	}
 	
+	/**
+	 * 根据用户 ID 或用户名修改密码
+	 * 
+	 * @param id
+	 * @param username
+	 * @param newPasswd
+	 * @return
+	 */
 	@PostMapping("/update")
 	public String update(Long id, String username, String newPasswd) {
 		userService.updateUserPassword(id, username, newPasswd);
