@@ -1,4 +1,3 @@
-[toc]
 # 1 配置
 ## 1.1 Maven 依赖
 ```
@@ -73,7 +72,7 @@ userDao.save(user);
 // 查获取所有用户信息列表
 userDao.findAll();
 ``` 
-##3.2 使用 @Query 注解自定义生成 SQL
+## 3.2 使用 @Query 注解自定义生成 SQL
 ```
 /**
  * 在 UserDao 中添加自定义方法
@@ -115,7 +114,7 @@ void updateUserPassword2(@Param("id") Long id,
 @Query(value = "UPDATE User SET password = :#{#user.password} WHERE id = :#{#user.id} OR username = :#{#user.username}")
 void updateUserPassword3(@Param("user") User user);
 ```
-##3.3 使用关键字创建查询生成 SQL
+## 3.3 使用关键字创建查询生成 SQL
 在 UserDao 中添加方法
 ```
 /**
@@ -124,7 +123,7 @@ void updateUserPassword3(@Param("user") User user);
  */
 User findByUsername(String username);
 ```
-##*可用关键字如下表*
+## *可用关键字如下表*
 官方：https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.sample-app.finders.strategies
 
 | 关键字      |    举例 | 转化为  |
