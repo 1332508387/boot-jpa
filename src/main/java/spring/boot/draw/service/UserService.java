@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -67,5 +68,9 @@ public class UserService {
 //	@Transactional
 	public void updateUserPassword3(User user) {
 		userDao.updateUserPassword3(user);
+	}
+
+	public List<User> listUserAndSort() {
+		return userDao.listUserAndSort(new Sort(Sort.Direction.DESC, "id"));
 	}
 }

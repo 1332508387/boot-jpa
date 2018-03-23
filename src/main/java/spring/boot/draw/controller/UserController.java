@@ -67,6 +67,12 @@ public class UserController {
 		return this.userService.listUser2();
 	}
 	
+	@GetMapping("/list3")
+	public List<User> list3() {
+		List<User> users = this.userService.listUserAndSort();
+		return users;
+	}
+	
 	/**
 	 * 根据用户名获取用户信息
 	 * 

@@ -2,6 +2,7 @@ package spring.boot.draw.repo;
 
 import java.util.List;
 
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -28,8 +29,15 @@ public interface UserDao extends JpaRepository<User, Long>{
 	/**
 	 * 自定义查询 SQL
 	 */
-	@Query(value = "SELECT id, username, password FROM User")
+	@Query(value = "SELECT u FROM User u ORDER BY id DESC")
 	List<User> listUser();
+	
+	/**
+	 * 使用 Sort 进行排序
+	 * 调用  userDao.listUserAndSort(new Sort(Sort.Direction.DESC, "paraName"...));
+	 */
+	@Query(value = "SELECT u FROM User u")
+	List<User> listUserAndSort(Sort sort);
 
 	/**
 	 * 
@@ -50,6 +58,5 @@ public interface UserDao extends JpaRepository<User, Long>{
 	@Modifying
 	@Query(value = "UPDATE User SET password = :#{#user.password} WHERE id = :#{#user.id} OR username = :#{#user.username}")
 	void updateUserPassword3(@Param("user") User user);
-	
 
 }

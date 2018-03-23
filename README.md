@@ -78,7 +78,7 @@ userDao.findAll();
  * 在 UserDao 中添加自定义方法
  * User 为类名，将关联到 数据库表 tb_user
  */
-@Query(value = "SELECT id, username, password FROM User")
+@Query(value = "SELECT u FROM User u")
 List<User> listUser();
 
 /**
@@ -119,7 +119,7 @@ void updateUserPassword3(@Param("user") User user);
 ```java
 /**
  * 符合规则的方法将自动生成 SQL
- * <==> SELECT * FROM User WHERE username = ?1
+ * <==> SELECT u FROM User u WHERE username = ?1
  */
 User findByUsername(String username);
 ```
