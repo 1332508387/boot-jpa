@@ -47,7 +47,7 @@ public class User {
 ```
 ## 2.2 Dao 层
  编写接口继承 JpaRepository 接口，此接口中提供了常用的 CRUD 方法，可以直接调用
-```
+```java
 public interface UserDao extends JpaRepository<User, Long>{
 	// 自定义方法
 }
