@@ -54,7 +54,7 @@ public interface UserDao extends JpaRepository<User, Long>{
 ```
 ## 2.3 Service 层
 注入 UserDao
-```
+```java
 @Service
 public class UserService {
 	@Resource
@@ -66,14 +66,14 @@ public class UserService {
 > 增、删、改操作要使用事务(在Service 层或 Dao 层相应方法上添加 @Transactional 注解)，否则会报如下错：
 > javax.persistence.TransactionRequiredException: Executing an update/delete query
 ## 3.1 直接调用接口 JpaRepository 的方法生成 SQL
-```
+```java
 // 保存用户信息
 userDao.save(user);
 // 查获取所有用户信息列表
 userDao.findAll();
 ``` 
 ## 3.2 使用 @Query 注解自定义生成 SQL
-```
+```java
 /**
  * 在 UserDao 中添加自定义方法
  * User 为类名，将关联到 数据库表 tb_user
@@ -116,7 +116,7 @@ void updateUserPassword3(@Param("user") User user);
 ```
 ## 3.3 使用关键字创建查询生成 SQL
 在 UserDao 中添加方法
-```
+```java
 /**
  * 符合规则的方法将自动生成 SQL
  * <==> SELECT * FROM User WHERE username = ?1
