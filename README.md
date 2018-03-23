@@ -17,7 +17,7 @@ spring.datasource.password=youpassword
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
-##*或使用 application.yml*
+## *或使用 application.yml*
 ```
 spring:
   datasource:
@@ -30,8 +30,8 @@ spring:
       ddl-auto: update
     show-sql: true
 ```
-#2 编写类
-##2.1 实体类
+# 2 编写类
+## 2.1 实体类
 
 ```
 @Entity
@@ -46,14 +46,14 @@ public class User {
 	// setter and getter
 }
 ```
-##2.2 Dao 层
+## 2.2 Dao 层
  编写接口继承 JpaRepository 接口，此接口中提供了常用的 CRUD 方法，可以直接调用
 ```
 public interface UserDao extends JpaRepository<User, Long>{
 	// 自定义方法
 }
 ```
-##2.3 Service 层
+## 2.3 Service 层
 注入 UserDao
 ```
 @Service
@@ -63,10 +63,10 @@ public class UserService {
 	
 }
 ```
-#3 查询方式
+# 3 查询方式
 > 增、删、改操作要使用事务(在Service 层或 Dao 层相应方法上添加 @Transactional 注解)，否则会报如下错：
 > javax.persistence.TransactionRequiredException: Executing an update/delete query
-##3.1 直接调用接口 JpaRepository 的方法生成 SQL
+## 3.1 直接调用接口 JpaRepository 的方法生成 SQL
 ```
 // 保存用户信息
 userDao.save(user);
@@ -154,8 +154,6 @@ User findByUsername(String username);
 |False| findByActiveFalse()| … where x.active = false|
 |IgnoreCase| findByFirstnameIgnoreCase| 	… where UPPER(x.firstame) = UPPER(?1)|
 
-# 4 完整代码
-*GitHub：https://github.com/1332508387/boot-jpa*
 
 
 
