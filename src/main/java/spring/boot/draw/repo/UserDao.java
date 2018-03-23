@@ -28,8 +28,9 @@ public interface UserDao extends JpaRepository<User, Long>{
 
 	/**
 	 * 自定义查询 SQL
+	 * nativeQuery = true 使用本地 SQL
 	 */
-	@Query(value = "SELECT u FROM User u ORDER BY id DESC")
+	@Query(value = "SELECT id, username, password FROM tb_user u ORDER BY id DESC LIMIT 0, 2", nativeQuery = true)
 	List<User> listUser();
 	
 	/**
