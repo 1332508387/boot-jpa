@@ -1,13 +1,13 @@
 # 1 配置
 ## 1.1 Maven 依赖
-```
+```java
 <dependency>
 	<groupId>org.springframework.boot</groupId>
 	<artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 ```
 ## 1.2配置属性文件 application.properties
-```
+```java
 spring.datasource.driver-class-name=com.mysql.jdbc.Driver
 spring.datasource.url=jdbc:mysql://hostname:3306/dbName?useUnicode=true&characterEncoding=utf-8&useSSL=true&serverTimezone=UTC
 spring.datasource.username=youname
@@ -17,7 +17,7 @@ spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
 ```
 ## *或使用 application.yml*
-```
+```java
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
@@ -32,7 +32,7 @@ spring:
 # 2 编写类
 ## 2.1 实体类
 
-```
+```java
 @Entity
 @Table(name = "tb_user") 							// 数据库表名
 public class User {
@@ -105,8 +105,8 @@ void updateUserPassword(Long id, String username, String newPasswd);
 @Modifying
 @Query(value = "UPDATE User SET password = :pwd WHERE id = :id OR username = :name")
 void updateUserPassword2(@Param("id") Long id, 
-						@Param("name") String username, 
-						@Param("pwd") String newPasswd);
+					@Param("name") String username, 
+					@Param("pwd") String newPasswd);
 /**
  * 引用实体类属性
  */
