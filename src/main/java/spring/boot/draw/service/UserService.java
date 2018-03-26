@@ -38,7 +38,7 @@ public class UserService {
 	@Transactional
 	public void saveAndRemove(User user, Long id) {
 		this.userDao.save(user);
-		this.userDao.deleteById(id);
+//		this.userDao.deleteById(id);
 //		saveUser(user);
 //		removeUserByMinId(id);
 //		int i = 1 / 0;
