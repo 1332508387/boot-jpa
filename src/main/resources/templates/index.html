@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.html</title>
+
+<meta name="keywords" content="keyword1,keyword2,keyword3">
+<meta name="description" content="this is my page">
+<meta name="content-type" content="text/html; charset=UTF-8">
+
+<script th:src="@{res/plugins/jQuery/jquery-2.2.3.min.js}"></script>
+</head>
+
+<body>
+	<table border="1px" width="80%">
+		<tr>
+			<td>序号</td>
+			<td>姓名</td>
+			<td>密码</td>
+		</tr>
+	</table>
+	<script>
+		$(function() {
+			$.ajax({
+				url: '/user/list',
+				type: 'GET',
+				success: function(data) {
+					$.each(data, function(i, elt) {
+						
+					})
+				}
+			});
+		});
+	</script>
+</body>
+</html>

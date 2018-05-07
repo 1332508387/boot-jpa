@@ -58,6 +58,12 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
+        
+        <!-- 缓存模板：开发阶段应避免缓存，通过 spring.thymeleaf.cache=false 关闭（application.properties 文件中配置） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
 
 	</dependencies>
 
